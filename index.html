@@ -1,1 +1,21 @@
 
+<p>a</p>
+<canvas id="1" width="578" height="200"></canvas>
+<canvas id="2" width="578" height="200"></canvas>
+    <script>
+      var canvas = document.getElementById('1');
+      var context = canvas.getContext('2d');
+
+      context.beginPath();
+      context.rect(188, 50, 200, 100);
+      context.fillStyle = 'Blue';
+      context.fill();
+      
+      canvas = document.getElementById('2');
+      context = canvas.getContext('2d');
+      context.beginPath();
+      context.rect(188, 50, 100, 100);
+      context.fillStyle = 'Blue';
+      context.fill();
+      
+    </script>
