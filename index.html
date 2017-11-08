@@ -1,1 +1,37 @@
+<p>a</p>
+<canvas id="1" width="578" height="200"></canvas>
+<canvas id="2" width="578" height="200"></canvas>
+<canvas id="page" width="200" height="300" style="border:5px solid #000000;"></canvas>
+    <script>
+      var canvas = document.getElementById('page');
+    var context = canvas.getContext('2d');
+    
+    var shapes = [];
+
+    var rect1 = new Path2D();
+    rect1.rect(10, 10, 50, 50);
+    rect1.lineWidth = 3;
+    context.stroke(rect1);
+    shapes.push(rect1);
+
+    var circle1 = new Path2D();
+    circle1.arc(100, 35, 25, 0, 2 * Math.PI);
+    circle1.lineWidth = 2;
+    context.stroke(circle1);
+    shapes.push(circle1);
+
+    context.fillStyle = "cyan";
+    context.fill(shapes[0]);
+
+    context.fillStyle = "red";
+    context.fill(shapes[1]);
+      
+    </script>
+
+
+
+
+
+
+
 
