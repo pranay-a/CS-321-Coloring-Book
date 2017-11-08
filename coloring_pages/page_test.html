@@ -2,11 +2,14 @@
 <html>
 <body>
 
-   <canvas id="canvas" width="660" height="700" style="border:5px solid #000000;"></canvas>
+   <canvas id="canvas" width="660" height="700" style="border:5px solid #000000; position: absolute; z-index: 0;"></canvas>
+   <canvas id="indexes" width="660" height="700" style="position: absolute; z-index: 1;"></canvas>
 
    <script>
 
-   // Formulae:
+   // Reference for drawing coloring pages for coloring book app
+
+   // Formulae Reference:
    // Line = <drawing_object>.lineTo(x_coord, y_coord);
    // Rectangle = <drawing_object>.rect(x_coord, y_coord, width, height);
 
@@ -18,18 +21,26 @@
    // Bezier Curvee = <drawing_object>.bezierCurveTo(control1_x, control1_y, control2_x, control2_y, coord_x, coord_y);
 
    // Implementation Problems:
-   // 1) When overlaying shapes, coloring one shapes brings it into the front of another shape. Need to maintain forward/backward position.
+   // 1) When overlaying shapes, coloring one shapes brings it into the front of another shape. Need to maintain forward/backward position. (SOLVED)
    // 2) Translating a shape causes problems when filling the shape.
 
    var canvas = document.getElementById("canvas");    // Identify <canvas> element -> coloring page
-   var context = canvas.getContext("2d");             // Create drawing context
+   var context = canvas.getContext("2d");             // Create context for shapes
+
+   var indexes = document.getElementById("indexes");  // Identify <canvas> element -> numbered indexes
+   var iContext = indexes.getContext("2d");           // Create context for numbered indexes
+   iContext.font = "40px Arial";                      // Set font size and style
+
    var shapes = [];                                   // Array of all shapes on canvas
+
+   // DRAW SHAPES:
 
    // Rectangle 1 : shapes[0]
    var rect1 = new Path2D();
    rect1.rect(320, 50, 100, 300);
    context.lineWidth = 3;                             // Line/border thickness
    context.stroke(rect1);                             // Draws object to canvas
+   iContext.fillText("1", 365, 210);
    shapes.push(rect1);
 
    // Circle 1 : shapes[1]
@@ -37,6 +48,7 @@
    circle1.arc(140, 120, 100, 0, 2*Math.PI);
    context.lineWidth = 2;
    context.stroke(circle1);
+   iContext.fillText("2", 133, 140);
    shapes.push(circle1);
 
    // Circle 2 : shapes[2]
@@ -44,6 +56,7 @@
    circle2.arc(200, 280, 50, 0, 2*Math.PI);
    context.lineWidth = 4;
    context.stroke(circle2);
+   iContext.fillText("3", 195, 300);
    shapes.push(circle2);
 
    // Custom 1 : shapes[3]
@@ -55,9 +68,19 @@
    context.lineJoin = "round";                        // Options: "miter", "round", "bevel"
    context.lineWidth = 5;
    context.stroke(custom1);
+   iContext.fillText("4", 170, 580);
    shapes.push(custom1);
 
-   /*/ Custom 2 : working through issues with this shape & translation
+   // Rectangle 2 : shapes[4]
+   var rect2 = new Path2D();
+   rect2.rect(450, 300, 100, 300);
+   context.lineWidth = 10;
+   context.stroke(rect2);
+   iContext.fillText("5", 495, 490);
+   shapes.push(rect2);
+
+   /*
+   // Custom 2 : working through issues with this shape & translation
    var custom2 = new Path2D();
    context.translate(200, 400);                       // Translates canvas with single instruction by x and y
    custom2.moveTo(170, 80);
@@ -70,14 +93,9 @@
    context.lineWidth = 2;
    context.stroke(custom2);
    context.translate(-200, -400);                     // Need to do this to reset canvas translation
-   shapes.push(custom2);*/
+   shapes.push(custom2);
+   */
 
-   // Rectangle 2 : shapes[4]
-   var rect2 = new Path2D();
-   rect2.rect(450, 300, 100, 300);
-   context.lineWidth = 10;
-   context.stroke(rect2);
-   shapes.push(rect2);
 
    // Coloring sample:
    context.fillStyle = "teal";
@@ -94,6 +112,9 @@
 
    context.fillStyle = "cyan";
    context.fill(shapes[4]);
+
+
+   //iContext.clearRect(0, 0, canvas.width, canvas.height);    // Will clear the indexes from the canvas
 
    </script>
 

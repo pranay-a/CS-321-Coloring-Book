@@ -2,15 +2,19 @@
 <html>
 <body>
 
-   <canvas id="page2" width="660" height="700" style="border:5px solid #000000;"></canvas>
+   <canvas id="page2" width="600" height="900" style="border:5px solid #000000; position: absolute; z-index: 0;"></canvas>
+   <canvas id="index" width="600" height="900" style="position: absolute; z-index: 1;"></canvas>
 
    <script>
 
-   // Formulae:
-   // Circle = <drawing_object>.arc(x_coord, y_coord, radius, start_angle, end_angle);
-   // Rectangle = <drawing_object>.rect(x_coord, y_coord, width, height);
+   var canvas = document.getElementById("page2");        // Identify <canvas> of shapes
+   var ctx = canvas.getContext("2d");                    // Context for shape <canvas>
 
-   var page = document.getElementById("page2");		// Identify <canvas> element -> coloring page
+   var index = document.getElementById("index");         // Identify <canvas> of indexes
+   var iCtx = indexes.getContext("2d");                  // Context for index <canvas>
+   iContext.font = "40px Arial";                         // Set size and style of font
+
+   var shapes = [];                                      // Array of shapes in <canvas>
 
 
    </script>
