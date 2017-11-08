@@ -2,7 +2,7 @@
 <html>
 <body>
 
-   <canvas id="page" width="660" height="700" style="border:5px solid #000000;"></canvas>
+   <canvas id="canvas" width="660" height="700" style="border:5px solid #000000;"></canvas>
 
    <script>
 
@@ -17,58 +17,49 @@
    // Quadratic Curve = <drawing_object>.quadraticCurveTo(control_x, control_y, x_coord, y_coord);
    // Bezier Curvee = <drawing_object>.bezierCurveTo(control1_x, control1_y, control2_x, control2_y, coord_x, coord_y);
 
-   var page = document.getElementById("page");		// Identify <canvas> element -> coloring page
+   // Implementation Problems:
+   // 1) When overlaying shapes, coloring one shapes brings it into the front of another shape. Need to maintain forward/backward position.
+   // 2) Translating a shape causes problems when filling the shape.
 
-   // Order of instructions matter (!!)
+   var canvas = document.getElementById("canvas");    // Identify <canvas> element -> coloring page
+   var context = canvas.getContext("2d");             // Create drawing context
+   var shapes = [];                                   // Array of all shapes on canvas
 
-   // Rectangle 1
-   var rect1 = page.getContext("2d");              // Create drawing object
+   // Rectangle 1 : shapes[0]
+   var rect1 = new Path2D();
    rect1.rect(320, 50, 100, 300);
-   rect1.fillStyle = "teal";                       // Options: hex or word -> "#ffffff" == "white"
-   rect1.fill();                                   // Fills object with fillStyle
-   rect1.lineWidth = 3;                            // Line/border thickness
-   rect1.strokeStyle = "#fffff";                   // Line/border color
-   rect1.stroke();                                 // Draws object to canvas
+   context.lineWidth = 3;                             // Line/border thickness
+   context.stroke(rect1);                             // Draws object to canvas
+   shapes.push(rect1);
 
-   // Circle 1
-   var circle1 = page.getContext("2d");
-   circle1.beginPath();                            // Starts a line path; must be used with lines and curves
+   // Circle 1 : shapes[1]
+   var circle1 = new Path2D();
    circle1.arc(140, 120, 100, 0, 2*Math.PI);
-   circle1.closePath();                            // Ends a line path
-   circle1.fillStyle = "purple";
-   circle1.fill();
-   circle1.lineWidth = 2;
-   circle1.strokeStyle = '#fffff';
-   circle1.stroke();
+   context.lineWidth = 2;
+   context.stroke(circle1);
+   shapes.push(circle1);
 
-   // Circle 2
-   var circle2 = page.getContext("2d");
-   circle2.beginPath();
+   // Circle 2 : shapes[2]
+   var circle2 = new Path2D();
    circle2.arc(200, 280, 50, 0, 2*Math.PI);
-   circle2.closePath();
-   circle2.fillStyle = "pink";
-   circle2.fill();
-   circle2.lineWidth = 4;
-   circle2.strokeStyle = '#fffff';
-   circle2.stroke();
+   context.lineWidth = 4;
+   context.stroke(circle2);
+   shapes.push(circle2);
 
-   // Custom 1
-   var custom1 = page.getContext("2d");
-   custom1.beginPath();
+   // Custom 1 : shapes[3]
+   var custom1 = new Path2D();
    custom1.moveTo(100, 600);
    custom1.lineTo(260, 600);
    custom1.lineTo(180, 500);
    custom1.lineTo(100, 600);
-   custom1.closePath();
-   custom1.fillStyle = "gold";
-   custom1.fill();
-   custom1.lineJoin = "bevel";                     // Options: "miter", "round", "bevel"
-   custom1.stroke();
+   context.lineJoin = "round";                        // Options: "miter", "round", "bevel"
+   context.lineWidth = 5;
+   context.stroke(custom1);
+   shapes.push(custom1);
 
-   // Custom 2
-   var custom2 = page.getContext("2d");
-   custom2.beginPath();
-   custom2.translate(200, 400);                    // Translates object with single instruction
+   /*/ Custom 2 : working through issues with this shape & translation
+   var custom2 = new Path2D();
+   context.translate(200, 400);                       // Translates canvas with single instruction by x and y
    custom2.moveTo(170, 80);
    custom2.bezierCurveTo(130, 100, 130, 150, 230, 150);
    custom2.bezierCurveTo(250, 180, 320, 180, 340, 150);
@@ -76,10 +67,33 @@
    custom2.bezierCurveTo(430, 40, 370, 30, 340, 50);
    custom2.bezierCurveTo(320, 5, 250, 20, 250, 50);
    custom2.bezierCurveTo(200, 5, 150, 20, 170, 80);
-   custom2.closePath();
-   custom2.fillStyle = "cyan";
-   custom2.fill();
-   custom2.stroke();
+   context.lineWidth = 2;
+   context.stroke(custom2);
+   context.translate(-200, -400);                     // Need to do this to reset canvas translation
+   shapes.push(custom2);*/
+
+   // Rectangle 2 : shapes[4]
+   var rect2 = new Path2D();
+   rect2.rect(450, 300, 100, 300);
+   context.lineWidth = 10;
+   context.stroke(rect2);
+   shapes.push(rect2);
+
+   // Coloring sample:
+   context.fillStyle = "teal";
+   context.fill(shapes[0]);
+
+   context.fillStyle = "purple";
+   context.fill(shapes[1]);
+
+   context.fillStyle = "pink";
+   context.fill(shapes[2]);
+
+   context.fillStyle = "gold";
+   context.fill(shapes[3]);
+
+   context.fillStyle = "cyan";
+   context.fill(shapes[4]);
 
    </script>
 
