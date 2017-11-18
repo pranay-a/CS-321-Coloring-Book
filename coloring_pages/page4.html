@@ -2,13 +2,15 @@
 <html>
 <body>
 
-   <canvas id="page3" width="600" height="900" style="border:5px solid #000000; position: absolute; z-index: 0;"></canvas>
-   <canvas id="index" width="600" height="900" style="position: absolute; z-index: 1;"></canvas>
+   <canvas id="page4" width="800" height="600" style="border:5px solid #000000; position: absolute; z-index: 0;"></canvas>
+   <canvas id="index" width="800" height="600" style="position: absolute; z-index: 1;"></canvas>
 
    <script>
 
    var canvas = document.getElementById("page4");        // Identify <canvas> of shapes
    var ctx = canvas.getContext("2d");                    // Context for shape <canvas>
+   ctx.lineJoin = "round";                               // Options: "miter", "round", "bevel"
+   ctx.lineWidth = 5;
 
    var index = document.getElementById("index");         // Identify <canvas> of indexes
    var iCtx = index.getContext("2d");                    // Context for index <canvas>
@@ -16,6 +18,184 @@
 
    var shapes = [];                                      // Array of shapes in <canvas>
 
+   // Triangle 0:
+   var triangle0 = new Path2D();
+   triangle0.moveTo(90, 460);
+   triangle0.lineTo(270, 520);
+   triangle0.lineTo(220, 360);
+   triangle0.lineTo(90, 460);
+   triangle0.lineTo(270, 520);
+   ctx.stroke(triangle0);
+   shapes.push(triangle0);
+
+   // Triangle 2:
+   var triangle1 = new Path2D();
+   triangle1.moveTo(290, 518);
+   triangle1.lineTo(238, 353);
+   triangle1.lineTo(400, 353);
+   triangle1.lineTo(290, 518);
+   triangle1.lineTo(238, 353);
+   ctx.stroke(triangle1);
+   shapes.push(triangle1);
+
+   // Triangle 2:
+   var triangle2 = new Path2D();
+   triangle2.moveTo(80, 445);
+   triangle2.lineTo(90, 300);
+   triangle2.lineTo(210, 345);
+   triangle2.lineTo(80, 445);
+   triangle2.lineTo(90, 300);
+   ctx.stroke(triangle2);
+   shapes.push(triangle2);
+
+   // Triangle 3:
+   var triangle3 = new Path2D();
+   triangle3.moveTo(220, 328);
+   triangle3.lineTo(95, 280);
+   triangle3.lineTo(205, 190);
+   triangle3.lineTo(220, 328);
+   triangle3.lineTo(95, 280)
+   ctx.stroke(triangle3);
+   shapes.push(triangle3);
+
+   // Triangle 4:
+   var triangle4 = new Path2D();
+   triangle4.moveTo(240, 330);
+   triangle4.lineTo(225, 185);
+   triangle4.lineTo(340, 220);
+   triangle4.lineTo(240, 330);
+   triangle4.lineTo(225, 185);
+   ctx.stroke(triangle4);
+   shapes.push(triangle4);
+
+   // Triangle 5:
+   var triangle5 = new Path2D();
+   triangle5.moveTo(255, 335);
+   triangle5.lineTo(400, 335);
+   triangle5.lineTo(360, 230);
+   triangle5.lineTo(255, 335);
+   triangle5.lineTo(400, 335);
+   ctx.stroke(triangle5);
+   shapes.push(triangle5);
+
+   // Triangle 6:
+   var triangle6 = new Path2D();
+   triangle6.moveTo(228, 165);
+   triangle6.lineTo(345, 202);
+   triangle6.lineTo(320, 90);
+   triangle6.lineTo(228, 165);
+   triangle6.lineTo(345, 202);
+   ctx.stroke(triangle6);
+   shapes.push(triangle6);
+
+   // Triangle 7:
+   var triangle7 = new Path2D();
+   triangle7.moveTo(375, 220);
+   triangle7.lineTo(420, 335);
+   triangle7.lineTo(510, 232);
+   triangle7.lineTo(375, 220);
+   triangle7.lineTo(420, 335);
+   ctx.stroke(triangle7);
+   shapes.push(triangle7);
+
+   // Triangle 8:
+   var triangle8 = new Path2D();
+   triangle8.moveTo(378, 202);
+   triangle8.lineTo(510, 216);
+   triangle8.lineTo(455, 90);
+   triangle8.lineTo(378, 202);
+   triangle8.lineTo(510, 216);
+   ctx.stroke(triangle8);
+   shapes.push(triangle8);
+
+   // Triangle 9:
+   var triangle9 = new Path2D();
+   triangle9.moveTo(360, 201);
+   triangle9.lineTo(340, 85);
+   triangle9.lineTo(430, 85);
+   triangle9.lineTo(360, 201);
+   triangle9.lineTo(340, 85);
+   ctx.stroke(triangle9);
+   shapes.push(triangle9);
+
+   // Triangle 10:
+   var triangle10 = new Path2D();
+   triangle10.moveTo(530, 240);
+   triangle10.lineTo(430, 350);
+   triangle10.lineTo(580, 350);
+   triangle10.lineTo(530, 240);
+   triangle10.lineTo(430, 350);
+   ctx.stroke(triangle10);
+   shapes.push(triangle10);
+
+   // Triangle 11:
+   var triangle11 = new Path2D();
+   triangle11.moveTo(415, 360);
+   triangle11.lineTo(310, 520);
+   triangle11.lineTo(480, 520);
+   triangle11.lineTo(415, 360);
+   triangle11.lineTo(310, 520);
+   ctx.stroke(triangle11);
+   shapes.push(triangle11);
+
+   // Triangle 12:
+   var triangle12 = new Path2D();
+   triangle12.moveTo(440, 370);
+   triangle12.lineTo(500, 520);
+   triangle12.lineTo(580, 370);
+   triangle12.lineTo(440, 370);
+   triangle12.lineTo(500, 520);
+   ctx.stroke(triangle12);
+   shapes.push(triangle12);
+
+   // Triangle 13:
+   var triangle13 = new Path2D();
+   triangle13.moveTo(530, 215);
+   triangle13.lineTo(480, 85);
+   triangle13.lineTo(600, 85);
+   triangle13.lineTo(530, 215);
+   triangle13.lineTo(480, 85);
+   ctx.stroke(triangle13);
+   shapes.push(triangle13);
+
+   // Triangle 14:
+   var triangle14 = new Path2D();
+   triangle14.moveTo(550, 220);
+   triangle14.lineTo(620, 90);
+   triangle14.lineTo(670, 240);
+   triangle14.lineTo(550, 220);
+   triangle14.lineTo(620, 90);
+   ctx.stroke(triangle14);
+   shapes.push(triangle14);
+
+   // Triangle 15:
+   var triangle15 = new Path2D();
+   triangle15.moveTo(550, 240);
+   triangle15.lineTo(600, 350);
+   triangle15.lineTo(670, 260);
+   triangle15.lineTo(550, 240);
+   triangle15.lineTo(600, 350);
+
+   ctx.stroke(triangle15);
+   shapes.push(triangle15);
+
+   // Index:
+   iCtx.fillText("0", 190, 460);
+   iCtx.fillText("1", 300, 430);
+   iCtx.fillText("2", 120, 380);
+   iCtx.fillText("3", 170, 280);
+   iCtx.fillText("4", 265, 265);
+   iCtx.fillText("5", 335, 315);
+   iCtx.fillText("6", 295, 170);
+   iCtx.fillText("7", 430, 285);
+   iCtx.fillText("8", 445, 185);
+   iCtx.fillText("9", 370, 140);
+   iCtx.fillText("10", 500, 335);
+   iCtx.fillText("11", 390, 480);
+   iCtx.fillText("12", 485, 440);
+   iCtx.fillText("13", 520, 145);
+   iCtx.fillText("14", 595, 205);
+   iCtx.fillText("15", 585, 300);
 
    </script>
 
