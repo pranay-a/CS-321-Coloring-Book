@@ -20,13 +20,12 @@
 
    // DRAW SHAPES:
    
-   // Line 1: 
+   // Line 1: Not in the array because it doesn't have to be colored. 
    var line1 = new Path2D(); 
    line1.moveTo(0,300); 
    line1.lineTo(800, 300); 
-   context.lineWidth = 2; 
-   context.stroke(line1); 
-   //shapes.push(line1); 
+   context.lineWidth = 3;                        // Line/border thickness
+   context.stroke(line1);                        // Draws object to canvas  
    
    //Triangle 1: shapes[0] 
    var triangle1 = new Path2D();
@@ -34,9 +33,9 @@
    triangle1.lineTo(200, 50);
    triangle1.lineTo(400, 300);
    triangle1.lineTo(0, 300);
-   context.lineJoin = "round";            // Options: "miter", "round", "bevel"
-   context.lineWidth = 2;
-   context.stroke(triangle1);
+   context.lineJoin = "round";                   // Options: "miter", "round", "bevel"
+   context.lineWidth = 3;                        // Line/border thickness
+   context.stroke(triangle1);                    // Draws object to canvas
    iContext.fillText("0", 200, 220);
    shapes.push(triangle1);
    
@@ -46,17 +45,17 @@
    triangle2.lineTo(590, 20); 
    triangle2.lineTo(800,300); 
    triangle2.lineTo(400,300); 
-   context.lineJoin = "round"; 
-   context.lineWidth = 2;
-   context.stroke(triangle2); 
+   context.lineJoin = "round";                  // Options: "miter", "round", "bevel"
+   context.lineWidth = 3;                       // Line/border thickness
+   context.stroke(triangle2);                   // Draws object to canvas
    iContext.fillText("1", 590, 220); 
    shapes.push(triangle2); 
    
    // Circle 1 : shapes[2]
    var circle1 = new Path2D();
-   circle1.arc(380, 120, 75, 0, 2*Math.PI);
-   context.lineWidth = 2;
-   context.stroke(circle1);
+   circle1.arc(380, 120, 75, 0, 2*Math.PI);     
+   context.lineWidth = 3;                       // Line/border thickness 
+   context.stroke(circle1);                     // Draws object to canvas 
    iContext.fillText("2", 375, 140);
    shapes.push(circle1);
    
@@ -68,8 +67,8 @@
    custom1.lineTo(800,300); 
    custom1.lineTo(0,300);
    custom1.lineTo(0,450);
-   context.lineWidth = 2;
-   context.stroke(custom1); 
+   context.lineWidth = 3;                       // Line/border thickness
+   context.stroke(custom1);                     // Draws object to canvas
    iContext.fillText("3", 400, 390); 
    shapes.push(custom1); 
    
@@ -81,8 +80,8 @@
    custom2.lineTo(800,500); 
    custom2.quadraticCurveTo(151,421,401,501);
    custom2.quadraticCurveTo(151,421,0,451); 
-   context.lineWidth = 2;
-   context.stroke(custom2); 
+   context.lineWidth = 3;                      // Line/border thickness
+   context.stroke(custom2);                    // Draws object to canvas
    iContext.fillText("4", 400, 550); 
    shapes.push(custom2); 
 
