@@ -22,13 +22,10 @@
   <!-- Navigation -->
   <header> <a href="">
     <h4 class="logo">PAGE 1</h4>
-    </a>
     <nav>
       <ul>
-        <li><a href="Artist.html">HOME</a></li>
-        <li></li>
+        <li><a href="index.html">HOME</a></li>
         <li> <a href="Contact.html">CONTACT</a></li>
-<li></li>
         <li></li>
       </ul>
     </nav>
@@ -39,151 +36,202 @@
   <!-- Parallax Section -->
   <!-- More Info Section -->
   <body onload="startListening();">
+  <div style="position:absolute">
+  <img src="images/colors.jpg" alt="" width="1100" height="90"/></span>
+  </div>
+  </br>
+  </br>
   <footer>
     
   </footer>
   <!-- Footer Section -->  <!-- Copyrights Section -->
   <div>
-  <p><strong>You said:</strong> <em id="demo-echo"></em>.</p>
-    <canvas id="canvas" width="800" height="600" style="border:5px solid #000000; position: absolute; z-index: 0;"></canvas>
-   <canvas id="indexes" width="800" height="600" style="position: absolute; z-index: 1;"></canvas>
+  <p>Say the color then the number.&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<strong>You said:</strong> <em id="demo-echo"></em>.</p>
+    <canvas id="page1" width="800" height="600" style="border:5px solid #000000; position: absolute; z-index: 0;"></canvas>
+   <canvas id="index" width="800" height="600" style="position: absolute; z-index: 1;"></canvas>
+   <canvas id="water_lines" width="800" height="600" margin="auto" style="position: absolute; z-index: 2;"></canvas>
     <script>
+    
 function startListening() {
    
    
 
 
-   var canvas = document.getElementById("canvas");    // Identify <canvas> element -> coloring page
-   var context = canvas.getContext("2d");             // Create context for shapes
+   var canvas = document.getElementById("page1");        // Identify <canvas> of shapes
+   var ctx = canvas.getContext("2d");                    // Context for shape <canvas>
+   ctx.lineJoin = "round";                               // Options: "miter", "round", "bevel"
+   ctx.lineWidth = 5;
 
-   var indexes = document.getElementById("indexes");  // Identify <canvas> element -> numbered indexes
-   var iContext = indexes.getContext("2d");           // Create context for numbered indexes
-   iContext.font = "30px Arial";                      // Set font size and style
+   var index = document.getElementById("index");         // Identify <canvas> of indexes
+   var iCtx = index.getContext("2d");                    // Context for index <canvas>
+   iCtx.font = "22px Arial";                             // Set size and style of font
 
+   var lines_canvas = document.getElementById("water_lines");
+   var lCtx = lines_canvas.getContext("2d");
+   lCtx.lineJoin = "round";
+   lCtx.lineWidth = 4;
 
-   var shapes = [];                                   // Array of all shapes on canvas
+   var shapes = [];                                      // Array of shapes in <canvas>
 
-   // DRAW SHAPES:
-   
-   // Rectangle 1: shapes[0]
-   var rect1 = new Path2D();
-   rect1.rect(250,50,300,250);
-   context.lineWidth = 3;                             // Line/border thickness
-   context.stroke(rect1);                             // Draws object to canvas
-   iContext.fillText("0",380, 200);
-   shapes.push(rect1);
-   
-   // Rectangle 2: shapes[1]
-   var rect2 = new Path2D();
-   rect2.rect(250,300,300,250);
-   context.lineWidth = 3;                             // Line/border thickness
-   context.stroke(rect2);                             // Draws object to canvas
-   iContext.fillText("1",390, 450);
-   shapes.push(rect2);
-   
-   // Rectangle 3: shapes[2]
-   var rect3 = new Path2D();
-   rect3.rect(0,250,200,250);
-   context.lineWidth = 3;                             // Line/border thickness
-   context.stroke(rect3);                             // Draws object to canvas
-   iContext.fillText("2", 90,380);
-   shapes.push(rect3);
-   
-   // Rectangle 4 : shapes[3]
-   var rect4 = new Path2D();
-   rect4.rect(0,0,200,250);
-   context.lineWidth = 3;                             // Line/border thickness
-   context.stroke(rect4);                             // Draws object to canvas
-   iContext.fillText("3", 90,130);
-   shapes.push(rect4);
-   
-   // Rectangle 5: shapes[4]
-   var rect5 = new Path2D(); 
-   rect5.rect(0,550, 550, 700);
-   context.lineWidth = 3; 
-   context.stroke(rect5); 
-   iContext.fillText("4",250,590);
-   shapes.push(rect5); 
-   
-   //Rectangle 6: shapes[5]
-   var rect6 = new Path2D(); 
-   rect6.rect(200,0,300,50);
-   context.lineWidth = 3;                             // Line/border thickness
-   context.stroke(rect6);                             // Draws object to canvas
-   iContext.fillText("5", 350,40);
-   shapes.push(rect6);
-   
-   // Rectangle 7: shapes[6]
-   var rect7 = new Path2D(); 
-   rect7.rect(500,0,160,50); 
-   context.lineWidth = 3; 
-   context.stroke(rect7); 
-   iContext.fillText("6", 571, 40);  
-   shapes.push(rect7); 
-   
-   // Rectangle 8: shapes[7]
-   var rect8 = new Path2D(); 
-   rect8.rect(0,500,250,50); 
-   context.lineWidth = 3; 
-   context.stroke(rect8); 
-   iContext.fillText("7", 120,540);  
-   shapes.push(rect8); 
-   
-   // Rectangle 9: shapes[8]
-   var rect9 = new Path2D(); 
-   rect9.rect(200,50,50,300); 
-   context.lineWidth = 3; 
-   context.stroke(rect9); 
-   iContext.fillText("8",220, 220);  
-   shapes.push(rect9); 
-   
-   // Rectangle 10: shapes[9]
-   var rect10 = new Path2D(); 
-   rect10.rect(550,50,110,650); 
-   context.lineWidth = 3; 
-   context.stroke(rect10); 
-   iContext.fillText("9", 590, 380);  
-   shapes.push(rect10); 
-   
-   // Rectangle 11: shapes[10]
-   var rect11 = new Path2D(); 
-   rect11.rect(200,350,50,150); 
-   context.lineWidth = 3; 
-   context.stroke(rect11); 
-   iContext.fillText("10",215, 440);  
-   shapes.push(rect11); 
-   
-   // Rectangle 12: shapes[11]
-   var rect12 = new Path2D(); 
-   rect12.rect(660, 0, 140, 100); 
-   context.lineWidth = 3; 
-   context.stroke(rect12); 
-   iContext.fillText("11", 720, 70); 
-   shapes.push(rect12); 
-   
-   // Rectangle 13: shapes[12]
-   var rect13 = new Path2D(); 
-   rect13.rect(660,100, 140, 400); 
-   context.lineWidth = 3; 
-   context.stroke(rect13); 
-   iContext.fillText("12", 720, 300);
-   shapes.push(rect13); 
-   
-   // Rectangle 14: shapes[13]
-   var rect14 = new Path2D(); 
-   rect14.rect(660, 500, 70, 700); 
-   context.lineWidth = 3; 
-   context.stroke(rect14); 
-   iContext.fillText("13", 680, 570); 
-   shapes.push(rect14); 
-   
-   // Rectangle15: shapes[14] 
-   var rect15 = new Path2D(); 
-   rect15.rect(730, 500, 70, 700); 
-   context.lineWidth = 3; 
-   context.stroke(rect15); 
-   iContext.fillText("14", 750, 570); 
-   shapes.push(rect15); 
+   // Custom 0 : Basket
+   var basket = new Path2D();
+   basket.moveTo(250, 380);
+   basket.lineTo(250, 450);
+   basket.quadraticCurveTo(300, 470, 350, 450);
+   basket.lineTo(350, 380);
+   basket.quadraticCurveTo(300, 390, 250, 380);
+   basket.lineTo(250, 450);
+   ctx.stroke(basket);
+   shapes.push(basket);
+
+   // Custom 1 : Ring
+   var ring = new Path2D();
+   ring.moveTo(260, 330);
+   ring.quadraticCurveTo(300, 350, 340, 330);
+   ring.quadraticCurveTo(300, 300, 260, 330);
+   ctx.stroke(ring);
+   shapes.push(ring);
+
+   // Custom 2 : Balloon 1
+   var balloon1 = new Path2D();
+   balloon1.moveTo(280, 315);
+   balloon1.quadraticCurveTo(250, 170, 290, 35);
+   balloon1.quadraticCurveTo(300, 33, 310, 35);
+   balloon1.quadraticCurveTo(350, 170, 320, 315)
+   balloon1.quadraticCurveTo(300, 310, 280, 315);
+   ctx.stroke(balloon1);
+   shapes.push(balloon1);
+
+   // Custom 3 : Balloon 2
+   var balloon2 = new Path2D();
+   balloon2.moveTo(320, 315);
+   balloon2.quadraticCurveTo(350, 170, 310, 35);
+   balloon2.quadraticCurveTo(330, 40, 340, 50);
+   balloon2.quadraticCurveTo(420, 170, 330, 320);
+   balloon2.lineTo(320, 315);
+   ctx.stroke(balloon2);
+   shapes.push(balloon2);
+
+   // Custom 4 : Balloon 3
+   var balloon3 = new Path2D();
+   balloon3.moveTo(340, 330);
+   balloon3.quadraticCurveTo(500, 150, 340, 50);
+   balloon3.quadraticCurveTo(420, 170, 330, 320);
+   balloon3.lineTo(338, 330);
+   ctx.stroke(balloon3);
+   shapes.push(balloon3);
+
+   // Custom 5 : Balloon 4
+   var balloon4 = new Path2D();
+   balloon4.moveTo(270, 322);
+   balloon4.quadraticCurveTo(180, 150, 260, 50);
+   balloon4.quadraticCurveTo(280, 40, 290, 35);
+   balloon4.quadraticCurveTo(250, 170, 280, 315);
+   balloon4.lineTo(270, 322);
+   ctx.stroke(balloon4);
+   shapes.push(balloon4);
+
+   // Custom 6 : Balloon 5
+   var balloon5 = new Path2D();
+   balloon5.moveTo(260, 330);
+   balloon5.quadraticCurveTo(100, 150, 260, 50);
+   balloon5.quadraticCurveTo(180, 150, 270, 322);
+   balloon5.lineTo(258, 330);
+   ctx.stroke(balloon5);
+   shapes.push(balloon5);
+
+   // Basket/Balloon lines:
+   ctx.moveTo(250, 380);
+   ctx.lineTo(280, 338);
+   ctx.stroke();
+   ctx.moveTo(280, 385);
+   ctx.lineTo(290, 340);
+   ctx.stroke();
+   ctx.moveTo(320, 385);
+   ctx.lineTo(310, 340);
+   ctx.stroke();
+   ctx.moveTo(350, 380);
+   ctx.lineTo(320, 338);
+   ctx.stroke();
+
+   // Custom 7 : Water
+   var water = new Path2D();
+   water.moveTo(0, 500);
+   water.quadraticCurveTo(250, 520, 450, 520);
+   water.quadraticCurveTo(650, 490, 800, 530);
+   water.lineTo(800, 600);
+   water.lineTo(0, 600);
+   water.lineTo(0, 500);
+   ctx.stroke(water);
+   shapes.push(water);
+
+   // Water lines:
+   lCtx.moveTo(140, 550);
+   lCtx.quadraticCurveTo(160, 555, 190, 550);
+   lCtx.quadraticCurveTo(210, 545, 220, 550);
+   lCtx.stroke();
+   lCtx.moveTo(450, 580);
+   lCtx.quadraticCurveTo(480, 585, 500, 580);
+   lCtx.quadraticCurveTo(520, 575, 530, 580);
+   lCtx.stroke();
+
+   // Custom 8 : Land
+   var land = new Path2D();
+   land.moveTo(450, 520);
+   land.quadraticCurveTo(600, 460, 640, 470);
+   land.quadraticCurveTo(730, 480, 800, 475);
+   land.lineTo(800, 530);
+   land.quadraticCurveTo(650, 490, 450, 520);
+   ctx.stroke(land);
+   shapes.push(land);
+
+   // Custom 9 : Tree 1
+   var tree1 = new Path2D();
+   tree1.moveTo(670, 470);
+   tree1.quadraticCurveTo(680, 430, 670, 420);
+   tree1.lineTo(710, 420);
+   tree1.quadraticCurveTo(700, 430, 710, 473);
+   ctx.stroke(tree1);
+   shapes.push(tree1);
+
+   // Custom 10 : Tree 2
+   var tree2 = new Path2D();
+   tree2.moveTo(670, 420);
+   tree2.quadraticCurveTo(650, 420, 650, 400);
+   tree2.bezierCurveTo(650, 380, 600, 340, 670, 345);
+   tree2.bezierCurveTo(690, 320, 700, 330, 720, 360);
+   tree2.bezierCurveTo(730, 350, 740, 340, 740, 380);
+   tree2.bezierCurveTo(740, 400, 720, 420 ,710, 420);
+   ctx.stroke(tree2);
+   shapes.push(tree2);
+
+   // Custom 11 : Cloud 1
+   var cloud1 = new Path2D();
+   cloud1.moveTo(500, 130);
+   cloud1.bezierCurveTo(460, 150, 460, 200, 560, 200);
+   cloud1.bezierCurveTo(580, 230, 650, 230, 670, 200);
+   cloud1.bezierCurveTo(750, 200, 750, 170, 720, 150);
+   cloud1.bezierCurveTo(760, 90, 700, 80, 670, 100);
+   cloud1.bezierCurveTo(650, 55, 580, 70, 580, 100);
+   cloud1.bezierCurveTo(530, 55, 480, 70, 500, 130);
+   ctx.stroke(cloud1);
+   shapes.push(cloud1);
+
+   // Index:
+   iCtx.fillText("0", 300, 435);
+   iCtx.fillText("1", 300, 340);
+   iCtx.fillText("2", 300, 200);
+   iCtx.fillText("3", 355, 210);
+   iCtx.fillText("4", 395, 220);
+   iCtx.fillText("5", 245, 210);
+   iCtx.fillText("6", 205, 220);
+   iCtx.fillText("7", 600, 570);
+   iCtx.fillText("8", 650, 505);
+   iCtx.fillText("9", 690, 460);
+   iCtx.fillText("10", 680, 395);
+   iCtx.fillText("11", 600, 160);
+
+  
    
    
  
@@ -200,7 +248,7 @@ function startListening() {
     var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList
     var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent
 
-    var colors = ['aqua', 'beige', 'black', 'blue', 'brown', 'chocolate', 'coral', 'crimson', 'fuchsia', 'gold', 'goldenrod', 'gray', 'green', 'indigo', 'ivory', 'lavender', 'lime', 'linen', 'magenta', 'maroon', 'navy', 'orange', 'pink', 'purple', 'red', 'salmon', 'sienna', 'silver', 'snow', 'teal', 'tomato', 'turquoise', 'violet', 'white', 'yellow'];
+    var colors = ['aqua', 'beige', 'black', 'blue', 'brown', 'chocolate', 'coral', 'crimson', 'fuchsia', 'gold', 'goldenrod', 'gray', 'grey', 'green', 'indigo', 'ivory', 'lavender', 'lime', 'linen', 'magenta', 'maroon', 'navy', 'orange', 'pink', 'purple', 'red', 'salmon', 'sienna', 'silver', 'snow', 'teal', 'tomato', 'turquoise', 'violet', 'white', 'yellow'];
     var nums = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14'];
     var nums1 = [
         'zero',
@@ -209,6 +257,7 @@ function startListening() {
         'two',
         'to',
         'too',
+        'II',
         'three',
         'tree',
         'four',
@@ -349,6 +398,7 @@ function startListening() {
                     //canvas = document.getElementById(word_number);
                 }
                 //var context = canvas.getContext('2d');
+                var context= ctx;
                 context.fillStyle = shape_color;
                 context.fill(shapes[canvas_num]);
             } else if (in_color == false && (in_num == true || in_num1 == true)) {

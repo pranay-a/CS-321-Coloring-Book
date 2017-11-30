@@ -25,9 +25,11 @@
     </a>
     <nav>
       <ul>
-        <li><a href="#hero">HOME</a></li>
+        <li><a href="index.html">HOME</a></li>
         <li></li>
-        <li> <a href="#contact">CONTACT</a></li>
+        <li> <a href="Contact.html">CONTACT</a></li>
+<li></li>
+        <li></li>
       </ul>
     </nav>
   </header>
@@ -36,11 +38,424 @@
   <!-- Stats Gallery Section -->
   <!-- Parallax Section -->
   <!-- More Info Section -->
-  <footer></footer>
+  <body onload="startListening();">
+  <div style="position:absolute">
+  <img src="images/colors.jpg" alt="" width="1100" height="90"/></span>
+  </div>
+  </br>
+  </br>
+  <footer>
+    
+  </footer>
   <!-- Footer Section -->  <!-- Copyrights Section -->
   <div>
-    <canvas id="canvas" width="500" height="400"></canvas>
-    <img src="images/html colors.png" width="472" height="395" alt=""/></div>
+  <p>Say the color then the number.&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<strong>You said:</strong> <em id="demo-echo"></em>.</p>
+    <canvas id="page4" width="800" height="600" style="border:5px solid #000000; position: absolute; z-index: 0;"></canvas>
+   <canvas id="index" width="800" height="600" style="position: absolute; z-index: 1;"></canvas>
+    <script>
+function startListening() {
+   
+   
+
+
+
+   var canvas = document.getElementById("page4");        // Identify <canvas> of shapes
+   var ctx = canvas.getContext("2d");                    // Context for shape <canvas>
+   ctx.lineJoin = "round";                               // Options: "miter", "round", "bevel"
+   ctx.lineWidth = 5;
+
+   var index = document.getElementById("index");         // Identify <canvas> of indexes
+   var iCtx = index.getContext("2d");                    // Context for index <canvas>
+   iCtx.font = "40px Arial";                             // Set size and style of font
+
+   var shapes = [];                                      // Array of shapes in <canvas>
+
+   // Triangle 0:
+   var triangle0 = new Path2D();
+   triangle0.moveTo(90, 460);
+   triangle0.lineTo(270, 520);
+   triangle0.lineTo(220, 360);
+   triangle0.lineTo(90, 460);
+   triangle0.lineTo(270, 520);
+   ctx.stroke(triangle0);
+   shapes.push(triangle0);
+
+   // Triangle 2:
+   var triangle1 = new Path2D();
+   triangle1.moveTo(290, 518);
+   triangle1.lineTo(238, 353);
+   triangle1.lineTo(400, 353);
+   triangle1.lineTo(290, 518);
+   triangle1.lineTo(238, 353);
+   ctx.stroke(triangle1);
+   shapes.push(triangle1);
+
+   // Triangle 2:
+   var triangle2 = new Path2D();
+   triangle2.moveTo(80, 445);
+   triangle2.lineTo(90, 300);
+   triangle2.lineTo(210, 345);
+   triangle2.lineTo(80, 445);
+   triangle2.lineTo(90, 300);
+   ctx.stroke(triangle2);
+   shapes.push(triangle2);
+
+   // Triangle 3:
+   var triangle3 = new Path2D();
+   triangle3.moveTo(220, 328);
+   triangle3.lineTo(95, 280);
+   triangle3.lineTo(205, 190);
+   triangle3.lineTo(220, 328);
+   triangle3.lineTo(95, 280)
+   ctx.stroke(triangle3);
+   shapes.push(triangle3);
+
+   // Triangle 4:
+   var triangle4 = new Path2D();
+   triangle4.moveTo(240, 330);
+   triangle4.lineTo(225, 185);
+   triangle4.lineTo(340, 220);
+   triangle4.lineTo(240, 330);
+   triangle4.lineTo(225, 185);
+   ctx.stroke(triangle4);
+   shapes.push(triangle4);
+
+   // Triangle 5:
+   var triangle5 = new Path2D();
+   triangle5.moveTo(255, 335);
+   triangle5.lineTo(400, 335);
+   triangle5.lineTo(360, 230);
+   triangle5.lineTo(255, 335);
+   triangle5.lineTo(400, 335);
+   ctx.stroke(triangle5);
+   shapes.push(triangle5);
+
+   // Triangle 6:
+   var triangle6 = new Path2D();
+   triangle6.moveTo(228, 165);
+   triangle6.lineTo(345, 202);
+   triangle6.lineTo(320, 90);
+   triangle6.lineTo(228, 165);
+   triangle6.lineTo(345, 202);
+   ctx.stroke(triangle6);
+   shapes.push(triangle6);
+
+   // Triangle 7:
+   var triangle7 = new Path2D();
+   triangle7.moveTo(375, 220);
+   triangle7.lineTo(420, 335);
+   triangle7.lineTo(510, 232);
+   triangle7.lineTo(375, 220);
+   triangle7.lineTo(420, 335);
+   ctx.stroke(triangle7);
+   shapes.push(triangle7);
+
+   // Triangle 8:
+   var triangle8 = new Path2D();
+   triangle8.moveTo(378, 202);
+   triangle8.lineTo(510, 216);
+   triangle8.lineTo(455, 90);
+   triangle8.lineTo(378, 202);
+   triangle8.lineTo(510, 216);
+   ctx.stroke(triangle8);
+   shapes.push(triangle8);
+
+   // Triangle 9:
+   var triangle9 = new Path2D();
+   triangle9.moveTo(360, 201);
+   triangle9.lineTo(340, 85);
+   triangle9.lineTo(430, 85);
+   triangle9.lineTo(360, 201);
+   triangle9.lineTo(340, 85);
+   ctx.stroke(triangle9);
+   shapes.push(triangle9);
+
+   // Triangle 10:
+   var triangle10 = new Path2D();
+   triangle10.moveTo(530, 240);
+   triangle10.lineTo(430, 350);
+   triangle10.lineTo(580, 350);
+   triangle10.lineTo(530, 240);
+   triangle10.lineTo(430, 350);
+   ctx.stroke(triangle10);
+   shapes.push(triangle10);
+
+   // Triangle 11:
+   var triangle11 = new Path2D();
+   triangle11.moveTo(415, 360);
+   triangle11.lineTo(310, 520);
+   triangle11.lineTo(480, 520);
+   triangle11.lineTo(415, 360);
+   triangle11.lineTo(310, 520);
+   ctx.stroke(triangle11);
+   shapes.push(triangle11);
+
+   // Triangle 12:
+   var triangle12 = new Path2D();
+   triangle12.moveTo(440, 370);
+   triangle12.lineTo(500, 520);
+   triangle12.lineTo(580, 370);
+   triangle12.lineTo(440, 370);
+   triangle12.lineTo(500, 520);
+   ctx.stroke(triangle12);
+   shapes.push(triangle12);
+
+   // Triangle 13:
+   var triangle13 = new Path2D();
+   triangle13.moveTo(530, 215);
+   triangle13.lineTo(480, 85);
+   triangle13.lineTo(600, 85);
+   triangle13.lineTo(530, 215);
+   triangle13.lineTo(480, 85);
+   ctx.stroke(triangle13);
+   shapes.push(triangle13);
+
+   // Triangle 14:
+   var triangle14 = new Path2D();
+   triangle14.moveTo(550, 220);
+   triangle14.lineTo(620, 90);
+   triangle14.lineTo(670, 240);
+   triangle14.lineTo(550, 220);
+   triangle14.lineTo(620, 90);
+   ctx.stroke(triangle14);
+   shapes.push(triangle14);
+
+   // Triangle 15:
+   var triangle15 = new Path2D();
+   triangle15.moveTo(550, 240);
+   triangle15.lineTo(600, 350);
+   triangle15.lineTo(670, 260);
+   triangle15.lineTo(550, 240);
+   triangle15.lineTo(600, 350);
+
+   ctx.stroke(triangle15);
+   shapes.push(triangle15);
+
+   // Index:
+   iCtx.fillText("0", 190, 460);
+   iCtx.fillText("1", 300, 430);
+   iCtx.fillText("2", 120, 380);
+   iCtx.fillText("3", 170, 280);
+   iCtx.fillText("4", 265, 265);
+   iCtx.fillText("5", 335, 315);
+   iCtx.fillText("6", 295, 170);
+   iCtx.fillText("7", 430, 285);
+   iCtx.fillText("8", 445, 185);
+   iCtx.fillText("9", 370, 140);
+   iCtx.fillText("10", 500, 335);
+   iCtx.fillText("11", 390, 480);
+   iCtx.fillText("12", 485, 440);
+   iCtx.fillText("13", 520, 145);
+   iCtx.fillText("14", 595, 205);
+   iCtx.fillText("15", 585, 300);
+
+   
+
+  
+   
+   
+ 
+
+
+
+    
+   
+   
+   
+   
+   
+   var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition
+    var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList
+    var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent
+
+    var colors = ['aqua', 'beige', 'black', 'blue', 'brown', 'chocolate', 'coral', 'crimson', 'fuchsia', 'gold', 'goldenrod', 'gray', 'grey', 'green', 'indigo', 'ivory', 'lavender', 'lime', 'linen', 'magenta', 'maroon', 'navy', 'orange', 'pink', 'purple', 'red', 'salmon', 'sienna', 'silver', 'snow', 'teal', 'tomato', 'turquoise', 'violet', 'white', 'yellow'];
+    var nums = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15'];
+    var nums1 = [
+        'zero',
+        'one',
+        'won',
+        'two',
+        'to',
+        'too',
+        'II',
+        'three',
+        'tree',
+        'four',
+        'for',
+        'five',
+        'V',
+        'six',
+        'seven',
+        'eight',
+        'nine',
+        'ten',
+        'eleven',
+        'twelve',
+        'thirteen',
+        'fourteen',
+        'fifteen',
+        'sixteen',
+        'seventeen',
+        'eighteen',
+        'nineteen',
+        'twenty'
+    ]
+    var word_to_num = {
+        'zero': 0,
+        'one': 1,
+        'won': 1,
+        'two': 2,
+        'to': 2,
+        'too': 2,
+        'II': 2,
+        'three': 3,
+        'tree': 3,
+        'four': 4,
+        'for': 4,
+        'five': 5,
+        'V': 5,
+        'six': 6,
+        'seven': 7,
+        'eight': 8,
+        'nine': 9,
+        'ten': 10,
+        'eleven': 11,
+        'twelve': 12,
+        'thirteen': 13,
+        'fourteen': 14,
+        'fifteen': 15,
+        'sixteen': 16,
+        'seventeen': 17,
+        'eighteen': 18,
+        'nineteen': 19,
+        'twenty': 20,
+        'thirty': 30,
+        'forty': 40,
+        'fifty': 50,
+        'sixty': 60,
+        'seventy': 70,
+        'eighty': 80,
+        'ninety': 90
+    };
+    var grammar = '#JSGF V1.0; grammar colors; public <color> = ' + colors.join(' | ') + ' ;'
+
+    var recognition = new SpeechRecognition();
+    var speechRecognitionList = new SpeechGrammarList();
+    speechRecognitionList.addFromString(grammar, 1);
+    recognition.grammars = speechRecognitionList;
+    //recognition.continuous = false;
+    recognition.lang = 'en-US';
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 1;
+    recognition.start();
+    recognition.continuous = true;
+    console.log('This is: ' + recognition.continuous);
+
+
+
+    recognition.onstart = function() {
+        console.log('Speech recognition service has started');
+    }
+
+
+    recognition.onend = function() {
+        console.log('Speech recognition service ended');
+        recognition.start();
+    }
+
+    recognition.onresult = function(event) {
+        // The SpeechRecognitionEvent results property returns a SpeechRecognitionResultList object
+        // The SpeechRecognitionResultList object contains SpeechRecognitionResult objects.
+        // It has a getter so it can be accessed like an array
+        // The [last] returns the SpeechRecognitionResult at the last position.
+        // Each SpeechRecognitionResult object contains SpeechRecognitionAlternative objects that contain individual results.
+        // These also have getters so they can be accessed like arrays.
+        // The [0] returns the SpeechRecognitionAlternative at position 0.
+        // We then return the transcript property of the SpeechRecognitionAlternative object
+
+        var last = event.results.length - 1;
+        var color = event.results[last][0].transcript;
+        var color_num = color.trim().split(" ");
+        console.log(color_num.length);
+        console.log(color);
+        console.log(color_num);
+        console.log('Confidence: ' + event.results[0][0].confidence);
+        document.querySelector('#demo-echo').textContent = color;
+
+        if (color_num.length < 2 || color_num.length > 2) {
+            console.log("Please say a color then number");
+        }
+        if (color_num.length == 2) {
+            var shape_color = color_num[0];
+            var num = color_num[1];
+            var in_color = false;
+            var in_num = false;
+            var in_num1 = false;
+            colors.forEach(function(element) {
+                if (element.toUpperCase() == shape_color.toUpperCase()) {
+                    in_color = true;
+                }
+            });
+            nums.forEach(function(element) {
+                if (element == num) {
+                    in_num = true;
+                }
+            });
+            nums1.forEach(function(element) {
+                if (element == num) {
+                    in_num1 = true;
+                }
+            });
+            if (in_color == true && (in_num == true || in_num1 == true)) {
+                var canvas = null;
+                var canvas_num= null;
+                if (in_num == true && in_num1 == false) {
+                    //canvas = document.getElementById(num);
+                    canvas_num= num;
+                }
+                if (in_num == false && in_num1 == true) {
+                    var word_number = word_to_num[num];
+                    canvas_num= word_number;
+                    //canvas = document.getElementById(word_number);
+                }
+                //var context = canvas.getContext('2d');
+                var context= ctx;
+                context.fillStyle = shape_color;
+                context.fill(shapes[canvas_num]);
+            } else if (in_color == false && (in_num == true || in_num1 == true)) {
+                console.log("Please only choose a color from the list given");
+            } else if (in_color == true && (in_num == false || in_num1 == false)) {
+                console.log("Please only choose a number from the picture");
+            }
+
+        }
+
+
+recognition.onerror = function(event) {
+  console.log('Speech recognition error detected: ' + event.error);
+}
+
+        check(shape_color);
+
+        //diagnostic.textContent = 'Result received: ' + color + '.';
+        //bg.style.backgroundColor = color;
+        function check(s) {
+            //console.log('This stopped');
+            if (s == "stop") {
+                recognition.stop();
+                console.log('This stopped');
+            }
+        }
+
+    }
+
+
+};
+
+   
+   </script>
+
+  </div>
 </div>
 <!-- Main Container Ends -->
 </body>

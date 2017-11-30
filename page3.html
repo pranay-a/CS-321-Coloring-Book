@@ -25,9 +25,11 @@
     </a>
     <nav>
       <ul>
-        <li><a href="#hero">HOME</a></li>
+        <li><a href="index.html">HOME</a></li>
         <li></li>
-        <li> <a href="#contact">CONTACT</a></li>
+        <li> <a href="Contact.html">CONTACT</a></li>
+<li></li>
+        <li></li>
       </ul>
     </nav>
   </header>
@@ -36,11 +38,313 @@
   <!-- Stats Gallery Section -->
   <!-- Parallax Section -->
   <!-- More Info Section -->
-  <footer></footer>
+  <body onload="startListening();">
+  <div style="position:absolute">
+  <img src="images/colors.jpg" alt="" width="1100" height="90"/></span>
+  </div>
+  </br>
+  </br>
+  <footer>
+    
+  </footer>
   <!-- Footer Section -->  <!-- Copyrights Section -->
   <div>
-    <canvas id="canvas" width="500" height="400"></canvas>
-  <img src="images/html colors.png" width="480" height="406" alt=""/>  </div>
+  <p>Say the color then the number.&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<strong>You said:</strong> <em id="demo-echo"></em>.</p>
+    <canvas id="canvas" width="800" height="600" style="border:5px solid #000000; position: absolute; z-index: 0;"></canvas>
+   <canvas id="indexes" width="800" height="600" style="position: absolute; z-index: 1;"></canvas>
+    <script>
+function startListening() {
+   
+  
+
+   var canvas = document.getElementById("canvas");    // Identify <canvas> element -> coloring page
+   var context = canvas.getContext("2d");             // Create context for shapes
+   
+
+   var indexes = document.getElementById("indexes");  // Identify <canvas> element -> numbered indexes
+   var iContext = indexes.getContext("2d");           // Create context for numbered indexes
+   iContext.font = "30px Arial";                      // Set font size and style
+
+
+   var shapes = [];                                   // Array of all shapes on canvas
+
+   // DRAW SHAPES:
+   
+   // Line 1: Not in the array because it doesn't have to be colored. 
+   var line1 = new Path2D(); 
+   line1.moveTo(0,300); 
+   line1.lineTo(800, 300); 
+   context.lineWidth = 3;                        // Line/border thickness
+   context.stroke(line1);                        // Draws object to canvas  
+   
+   //Triangle 1: shapes[0] 
+   var triangle1 = new Path2D();
+   triangle1.moveTo(0, 300);
+   triangle1.lineTo(200, 50);
+   triangle1.lineTo(400, 300);
+   triangle1.lineTo(0, 300);
+   context.lineJoin = "round";                   // Options: "miter", "round", "bevel"
+   context.lineWidth = 3;                        // Line/border thickness
+   context.stroke(triangle1);                    // Draws object to canvas
+   iContext.fillText("0", 200, 220);
+   shapes.push(triangle1);
+   
+   //Triangle 2: shapes[1]
+   var triangle2 = new Path2D(); 
+   triangle2.moveTo(380,273); 
+   triangle2.lineTo(590, 20); 
+   triangle2.lineTo(800,300); 
+   triangle2.lineTo(400,300); 
+   context.lineJoin = "round";                  // Options: "miter", "round", "bevel"
+   context.lineWidth = 3;                       // Line/border thickness
+   context.stroke(triangle2);                   // Draws object to canvas
+   iContext.fillText("1", 590, 220); 
+   shapes.push(triangle2); 
+   
+   // Circle 1 : shapes[2]
+   var circle1 = new Path2D();
+   circle1.arc(380, 120, 75, 0, 2*Math.PI);     
+   context.lineWidth = 3;                       // Line/border thickness 
+   context.stroke(circle1);                     // Draws object to canvas 
+   iContext.fillText("2", 375, 140);
+   shapes.push(circle1);
+   
+   // Water: shapes[3]
+   var custom1 = new Path2D(); 
+   custom1.moveTo(0,450);
+   custom1.quadraticCurveTo(150,420,400,500);
+   custom1.quadraticCurveTo(150,420,800,500);
+   custom1.lineTo(800,300); 
+   custom1.lineTo(0,300);
+   custom1.lineTo(0,450);
+   context.lineWidth = 3;                       // Line/border thickness
+   context.stroke(custom1);                     // Draws object to canvas
+   iContext.fillText("3", 400, 390); 
+   shapes.push(custom1); 
+   
+   //Sand: shapes[4] 
+   var custom2 = new Path2D(); 
+   custom2.moveTo(0,450); 
+   custom2.lineTo(0,600); 
+   custom2.lineTo(800,600);
+   custom2.lineTo(800,500); 
+   custom2.quadraticCurveTo(151,421,401,501);
+   custom2.quadraticCurveTo(151,421,0,451); 
+   context.lineWidth = 3;                      // Line/border thickness
+   context.stroke(custom2);                    // Draws object to canvas
+   iContext.fillText("4", 400, 550); 
+   shapes.push(custom2); 
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+   
+   
+   
+   
+   
+  
+   var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition
+    var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList
+    var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent
+
+    var colors = ['aqua', 'beige', 'black', 'blue', 'brown', 'chocolate', 'coral', 'crimson', 'fuchsia', 'gold', 'goldenrod', 'gray', 'grey', 'green', 'indigo', 'ivory', 'lavender', 'lime', 'linen', 'magenta', 'maroon', 'navy', 'orange', 'pink', 'purple', 'red', 'salmon', 'sienna', 'silver', 'snow', 'teal', 'tomato', 'turquoise', 'violet', 'white', 'yellow'];
+    var nums = ['0', '1', '2', '3', '4'];
+    var nums1 = [
+        'zero',
+        'one',
+        'won',
+        'two',
+        'to',
+        'too',
+        'II',
+        'three',
+        'tree',
+        'four',
+        'for',
+        'five',
+        'V',
+        'six',
+        'seven',
+        'eight',
+        'nine',
+        'ten',
+        'eleven',
+        'twelve',
+        'thirteen',
+        'fourteen',
+        'fifteen',
+        'sixteen',
+        'seventeen',
+        'eighteen',
+        'nineteen',
+        'twenty'
+    ]
+    var word_to_num = {
+        'zero': 0,
+        'one': 1,
+        'won': 1,
+        'two': 2,
+        'to': 2,
+        'too': 2,
+        'II': 2,
+        'three': 3,
+        'tree': 3,
+        'four': 4,
+        'for': 4,
+        'five': 5,
+        'V': 5,
+        'six': 6,
+        'seven': 7,
+        'eight': 8,
+        'nine': 9,
+        'ten': 10,
+        'eleven': 11,
+        'twelve': 12,
+        'thirteen': 13,
+        'fourteen': 14,
+        'fifteen': 15,
+        'sixteen': 16,
+        'seventeen': 17,
+        'eighteen': 18,
+        'nineteen': 19,
+        'twenty': 20,
+        'thirty': 30,
+        'forty': 40,
+        'fifty': 50,
+        'sixty': 60,
+        'seventy': 70,
+        'eighty': 80,
+        'ninety': 90
+    };
+    var grammar = '#JSGF V1.0; grammar colors; public <color> = ' + colors.join(' | ') + ' ;'
+
+    var recognition = new SpeechRecognition();
+    var speechRecognitionList = new SpeechGrammarList();
+    speechRecognitionList.addFromString(grammar, 1);
+    recognition.grammars = speechRecognitionList;
+    //recognition.continuous = false;
+    recognition.lang = 'en-US';
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 1;
+    recognition.start();
+    recognition.continuous = true;
+    console.log('This is: ' + recognition.continuous);
+
+
+
+    recognition.onstart = function() {
+        console.log('Speech recognition service has started');
+    }
+
+
+    recognition.onend = function() {
+        console.log('Speech recognition service ended');
+        recognition.start();
+    }
+
+    recognition.onresult = function(event) {
+        // The SpeechRecognitionEvent results property returns a SpeechRecognitionResultList object
+        // The SpeechRecognitionResultList object contains SpeechRecognitionResult objects.
+        // It has a getter so it can be accessed like an array
+        // The [last] returns the SpeechRecognitionResult at the last position.
+        // Each SpeechRecognitionResult object contains SpeechRecognitionAlternative objects that contain individual results.
+        // These also have getters so they can be accessed like arrays.
+        // The [0] returns the SpeechRecognitionAlternative at position 0.
+        // We then return the transcript property of the SpeechRecognitionAlternative object
+
+        var last = event.results.length - 1;
+        var color = event.results[last][0].transcript;
+        var color_num = color.trim().split(" ");
+        console.log(color_num.length);
+        console.log(color);
+        console.log(color_num);
+        console.log('Confidence: ' + event.results[0][0].confidence);
+        document.querySelector('#demo-echo').textContent = color;
+
+        if (color_num.length < 2 || color_num.length > 2) {
+            console.log("Please say a color then number");
+        }
+        if (color_num.length == 2) {
+            var shape_color = color_num[0];
+            var num = color_num[1];
+            var in_color = false;
+            var in_num = false;
+            var in_num1 = false;
+            colors.forEach(function(element) {
+                if (element.toUpperCase() == shape_color.toUpperCase()) {
+                    in_color = true;
+                }
+            });
+            nums.forEach(function(element) {
+                if (element == num) {
+                    in_num = true;
+                }
+            });
+            nums1.forEach(function(element) {
+                if (element == num) {
+                    in_num1 = true;
+                }
+            });
+            if (in_color == true && (in_num == true || in_num1 == true)) {
+                var canvas = null;
+                var canvas_num= null;
+                if (in_num == true && in_num1 == false) {
+                    //canvas = document.getElementById(num);
+                    canvas_num= num;
+                }
+                if (in_num == false && in_num1 == true) {
+                    var word_number = word_to_num[num];
+                    canvas_num= word_number;
+                    //canvas = document.getElementById(word_number);
+                }
+                //var context = canvas.getContext('2d');
+                //var context= ctx;
+                context.fillStyle = shape_color;
+                context.fill(shapes[canvas_num]);
+            } else if (in_color == false && (in_num == true || in_num1 == true)) {
+                console.log("Please only choose a color from the list given");
+            } else if (in_color == true && (in_num == false || in_num1 == false)) {
+                console.log("Please only choose a number from the picture");
+            }
+
+        }
+
+
+recognition.onerror = function(event) {
+  console.log('Speech recognition error detected: ' + event.error);
+}
+
+        check(shape_color);
+
+        //diagnostic.textContent = 'Result received: ' + color + '.';
+        //bg.style.backgroundColor = color;
+        function check(s) {
+            //console.log('This stopped');
+            if (s == "stop") {
+                recognition.stop();
+                console.log('This stopped');
+            }
+        }
+
+    }
+
+
+};
+
+   
+   </script>
+
+  </div>
 </div>
 <!-- Main Container Ends -->
 </body>
